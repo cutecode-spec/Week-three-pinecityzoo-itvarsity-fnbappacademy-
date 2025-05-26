@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pine City Zoo - Ticket Booking</title>
+    <div id="header">
+<img src="images/logo.png"/>
+</div>
+<div id="tabs-top">
+<a href="Animals.html">ANIMALS</a>
+<a href="index.html">MAP</a>
+<a href="places.html">PLACES</a>
+</div>
+<body>
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --secondary: #795548;
+            --light: #f1f8e9;
+            --gray: #e0e0e0;
+            --dark: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        #header {
+    position: fixed;
+    top     : 0;
+    left    : 0;
+    z-index : 500;
+    width   :100%;
+    height  :80px;
+    background-color: #4caf50;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-image  : url('images/wood-bg.png');
+    background-repeat: repeat-x;
+}
+
+#header img {
+  max-height: 60px;
+}
+
+/* Top tabs */
+#tabs-top {
+  background-color: #388e3c;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+position: fixed;
+top     : 80px;
+left    : 0;
+z-index : 500;
+width   : 100%;
+height  : 40px;
+background-color: darkgreen;
+}
+#tabs-top a{
+float   : left;
+display : block;
+width   : 33%;
+height  :35px;
+font-weight : 700;
+color       : white;
+text-align  : center;
+text-decoration : none;
+padding-top     : 12px;  
+}
+
+
+#tabs-top a:hover {
+  background-color: #2e7d32;
+}
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .logo img {
+            width: 200px;
+            height: 200px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        
+        .hero {
+            background-image: url(images/map-blur.png');height=300&width=800');
+            background-size: cover;
+            background-position: center;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+        
+        .booking-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .booking-form {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .summary {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 20px;
+            max-height: 500px;
+        }
+        
+        h1, h2, h3 {
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--gray);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .ticket-selector {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .ticket-selector label {
+            margin-bottom: 0;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+        }
+        
+        .quantity-selector button {
+            background: var(--gray);
+            border: none;
+            width: 30px;
+            height: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        .quantity-selector input {
+            width: 50px;
+            text-align: center;
+            margin: 0 5px;
+        }
+        
+        .section-title {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .total {
+            font-weight: bold;
+            font-size: 1.2rem;
+            border-top: 2px solid var(--primary);
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+        
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .payment-icons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .payment-icons img {
+            height: 30px;
+        }
+        
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .tab {
+            padding: 10px 20px;
+            background-color: var(--gray);
+            cursor: pointer;
+            border-radius: 4px 4px 0 0;
+            margin-right: 5px;
+        }
+        
+        .tab.active {
+            background-color: white;
+            border-top: 3px solid var(--primary);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .booking-container {
+                flex-direction: column;
+            }
+            
+            .summary {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="hero">
+            <h1>Book Your Zoo Adventure Today!</h1>
+        </div>
+        
+        <div class="booking-container">
+            <div class="booking-form">
+                <h2>Ticket Booking</h2>
+                
+                <div class="tabs">
+                    <div class="tab active" onclick="switchTab('tickets')">Tickets</div>
+                    <div class="tab" onclick="switchTab('details')">Your Details</div>
+                    <div class="tab" onclick="switchTab('payment')">Payment</div>
+                </div>
+                
+                <form id="booking-form">
+                    <div id="tickets-tab" class="tab-content active">
+                        <h3 class="section-title">Select Tickets</h3>
+                        
+                        <div class="form-group">
+                            <div class="ticket-selector">
+                                <label>Adult Ticket (R250)</label>
+                                <div class="quantity-selector">
+                                    <button type="button" onclick="decreaseQuantity('adult')">-</button>
+                                    <input type="number" id="adult-quantity" min="0" value="1" onchange="updateSummary()">
+                                    <button type="button" onclick="increaseQuantity('adult')">+</button>
+                                </div>
+                            </div>
+                            
+                            <div class="ticket-selector">
+                                <label>Child Ticket (R150)</label>
+                                <div class="quantity-selector">
+                                    <button type="button" onclick="decreaseQuantity('child')">-</button>
+                                    <input type="number" id="child-quantity" min="0" value="0" onchange="updateSummary()">
+                                    <button type="button" onclick="increaseQuantity('child')">+</button>
+                                </div>
+                            </div>
+                            
+                            <div class="ticket-selector">
+                                <label>Senior Ticket (required R200)</label>
+                                <div class="quantity-selector">
+                                    <button type="button" onclick="decreaseQuantity('senior')">-</button>
+                                    <input type="number" id="senior-quantity" min="0" value="0" onchange="updateSummary()">
+                                    <button type="button" onclick="increaseQuantity('senior')">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="visit-date">Visit Date</label>
+                            <input type="date" id="visit-date" required min="" onchange="updateSummary()">
+                        </div>
+                        
+                        <button type="button" class="btn" onclick="nextTab('details')">Continue to Details</button>
+                    </div>
+                    
+                    <div id="details-tab" class="tab-content">
+                        <h3 class="section-title">Your Details</h3>
+                        
+                        <div class="form-group">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        
+                        <button type="button" class="btn" onclick="nextTab('payment')">Continue to Payment</button>
+                    </div>
+                    
+                    <div id="payment-tab" class="tab-content">
+                        <h3 class="section-title">Payment Details</h3>
+                        
+                        <div class="form-group">
+                            <label for="card-name">Name on Card</label>
+                            <input type="text" id="card-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="card-number">Card Number</label>
+                            <input type="text" id="card-number" placeholder="XXXX XXXX XXXX XXXX" required>
+                        </div>
+                        
+                        <div class="form-group" style="display: flex; gap: 10px;">
+                            <div style="flex: 1;">
+                                <label for="expiry">Expiry Date</label>
+                                <input type="text" id="expiry" placeholder="MM/YY" required>
+                            </div>
+                            <div style="flex: 1;">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" placeholder="XXX" required>
+                            </div>
+                        </div>
+                        
+    
+                        </div>
+                        
+                        <div class="form-group" style="margin-top: 20px;">
+                            <button type="submit" class="btn">Complete Booking</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="summary">
+                <h3 class="section-title">Booking Summary</h3>
+                
+                <div id="summary-date" class="summary-item">
+                    <span>Visit Date:</span>
+                    <span>Select a date</span>
+                </div>
+                
+                <div id="summary-tickets">
+                    <!-- Ticket summary will be populated by JavaScript -->
+                </div>
+                
+                <div id="summary-total" class="total">
+                    <span>Total:</span>
+                    <span>250</span>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <h4>Zoo Hours</h4>
+                    <p>Open daily: 9:00 AM - 5:00 PM</p>
+                    <p>Last entry: 4:00 PM</p>
+                    
+                    <h4 style="margin-top: 15px;">Need Help?</h4>
+                    <p>Call us at: (555) 123-4567</p>
+                    <p>Email: tickets@pinecityzoo.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Pine City Zoo. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('visit-date').min = today;
+        document.getElementById('visit-date').value = today;
+        
+        // Ticket prices
+        const prices = {
+            adult: R250,
+            child: R150,
+            senior: R200
+        };
+        
+        // Switch between tabs
+        function switchTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => tab.classList.remove('active'));
+            
+            // Deactivate all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Activate the selected tab
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+            document.querySelector(`.tab:nth-child(${tabName === 'tickets' ? 1 : tabName === 'details' ? 2 : 3})`).classList.add('active');
+        }
+        
+        function nextTab(tabName) {
+            switchTab(tabName);
+        }
+        
+        // Increase ticket quantity
+        function increaseQuantity(type) {
+            const input = document.getElementById(`${type}-quantity`);
+            input.value = parseInt(input.value) + 1;
+            updateSummary();
+        }
+        
+        // Decrease ticket quantity
+        function decreaseQuantity(type) {
+            const input = document.getElementById(`${type}-quantity`);
+            if (parseInt(input.value) > 0) {
+                input.value = parseInt(input.value) - 1;
+                updateSummary();
+            }
+        }
+        
+        // Update booking summary
+        function updateSummary() {
+            const adultQuantity = parseInt(document.getElementById('adult-quantity').value);
+            const childQuantity = parseInt(document.getElementById('child-quantity').value);
+            const seniorQuantity = parseInt(document.getElementById('senior-quantity').value);
+            
+            const visitDate = document.getElementById('visit-date').value;
+            const formattedDate = new Date(visitDate).toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            // Update date in summary
+            document.getElementById('summary-date').innerHTML = `
+                <span>Visit Date:</span>
+                <span>${formattedDate}</span>
+            `;
+            
+            // Calculate totals
+            const adultTotal = adultQuantity * prices.adult;
+            const childTotal = childQuantity * prices.child;
+            const seniorTotal = seniorQuantity * prices.senior;
+            const grandTotal = adultTotal + childTotal + seniorTotal;
+            
+            // Update tickets in summary
+            let ticketsHtml = '';
+            
+            if (adultQuantity > 0) {
+                ticketsHtml += `
+                    <div class="summary-item">
+                        <span>Adult x${adultQuantity}</span>
+                        <span>$${adultTotal.toFixed(2)}</span>
+                    </div>
+                `;
+            }
+            
+            if (childQuantity > 0) {
+                ticketsHtml += `
+                    <div class="summary-item">
+                        <span>Child x${childQuantity}</span>
+                        <span>$${childTotal.toFixed(2)}</span>
+                    </div>
+                `;
+            }
+            
+            if (seniorQuantity > 0) {
+                ticketsHtml += `
+                    <div class="summary-item">
+                        <span>Senior x${seniorQuantity}</span>
+                        <span>$${seniorTotal.toFixed(2)}</span>
+                    </div>
+                `;
+            }
+            
+            document.getElementById('summary-tickets').innerHTML = ticketsHtml;
+            
+            // Update total
+            document.getElementById('summary-total').innerHTML = `
+                <span>Total:</span>
+                <span>$${grandTotal.toFixed(2)}</span>
+            `;
+        }
+        
+        // Initialize summary
+        updateSummary();
+        
+        // Form submission
+        document.getElementById('booking-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real application, you would send the form data to a server here
+            alert('Booking completed successfully! A confirmation email has been sent to your email address.');
+            
+            // Reset form
+            this.reset();
+            document.getElementById('adult-quantity').value = 1;
+            document.getElementById('child-quantity').value = 0;
+            document.getElementById('senior-quantity').value = 0;
+            document.getElementById('visit-date').value = today;
+            updateSummary();
+            switchTab('tickets');
+        });
+    </script>
+</body>
+</html>
